@@ -1,0 +1,28 @@
+object MrxQRCode: TMrxQRCode
+  Size.Width = 128.000000000000000000
+  Size.Height = 128.000000000000000000
+  Size.PlatformDefault = False
+  object xBackground: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Locked = True
+    HitTest = False
+    Size.Width = 128.000000000000000000
+    Size.Height = 128.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 15.000000000000000000
+    YRadius = 15.000000000000000000
+    object xQRCode: TImage
+      MultiResBitmap = <
+        item
+        end>
+      Align = Client
+      Locked = True
+      HitTest = False
+      Size.Width = 128.000000000000000000
+      Size.Height = 128.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+end

@@ -1,0 +1,19 @@
+object MrxText: TMrxText
+  Size.Width = 200.000000000000000000
+  Size.Height = 40.000000000000000000
+  Size.PlatformDefault = False
+  object xText: TSkLabel
+    Align = Top
+    Locked = True
+    Size.Width = 200.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+    OnResized = xTextResized
+    StyledSettings = [Family, Style, FontColor]
+    TextSettings.Font.Size = 15.000000000000000000
+    Words = <
+      item
+        Text = 'xText'
+      end>
+  end
+end

@@ -1,0 +1,78 @@
+object MrxButtonIconTextVertical: TMrxButtonIconTextVertical
+  Size.Width = 120.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object xBackground: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Locked = True
+    HitTest = False
+    Size.Width = 120.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 10.000000000000000000
+    YRadius = 10.000000000000000000
+    object xAniColor: TColorAnimation
+      Duration = 0.100000001490116100
+      Interpolation = Quadratic
+      Inverse = True
+      PropertyName = 'Fill.Color'
+      StartValue = claWhite
+      StopValue = claWhite
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xAniRadiusX: TFloatAnimation
+      Duration = 0.100000001490116100
+      Inverse = True
+      PropertyName = 'XRadius'
+      StartValue = 10.000000000000000000
+      StopValue = 10.000000000000000000
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xAniRadiusY: TFloatAnimation
+      Duration = 0.100000001490116100
+      Inverse = True
+      PropertyName = 'YRadius'
+      StartValue = 10.000000000000000000
+      StopValue = 10.000000000000000000
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xLayer: TLayout
+      Align = VertCenter
+      Locked = True
+      Position.Y = 20.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object xText: TSkLabel
+        Align = Client
+        Locked = True
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyledSettings = [Family, Style, FontColor]
+        TextSettings.Font.Size = 15.000000000000000000
+        TextSettings.HorzAlign = Center
+        Words = <
+          item
+            Text = 'xText'
+          end>
+      end
+      object xIcon: TGlyph
+        AutoHide = False
+        Align = Top
+        Size.Width = 120.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+  end
+end

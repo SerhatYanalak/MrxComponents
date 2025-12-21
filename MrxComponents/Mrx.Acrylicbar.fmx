@@ -1,0 +1,15 @@
+object MrxAcrylicbar: TMrxAcrylicbar
+  Size.Width = 300.000000000000000000
+  Size.Height = 48.000000000000000000
+  Size.PlatformDefault = False
+  object xBackground: TRectangle
+    Align = Contents
+    Fill.Color = claWhite
+    Locked = True
+    Opacity = 0.500000000000000000
+    Size.Width = 300.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+  end
+end

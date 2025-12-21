@@ -1,0 +1,72 @@
+object MrxSwitch: TMrxSwitch
+  Size.Width = 80.000000000000000000
+  Size.Height = 40.000000000000000000
+  Size.PlatformDefault = False
+  OnClick = FrameClick
+  object xBackground: TRectangle
+    Align = Center
+    Fill.Color = xFFB9BABC
+    Locked = True
+    HitTest = False
+    Padding.Left = 7.500000000000000000
+    Padding.Top = 7.500000000000000000
+    Padding.Right = 7.500000000000000000
+    Padding.Bottom = 7.500000000000000000
+    Size.Width = 60.000000000000000000
+    Size.Height = 35.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 17.500000000000000000
+    YRadius = 17.500000000000000000
+    object xCircle: TRectangle
+      Align = Left
+      Fill.Color = claWhite
+      Locked = True
+      HitTest = False
+      Position.X = 7.500000000000000000
+      Position.Y = 7.500000000000000000
+      Size.Width = 20.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 10.000000000000000000
+      YRadius = 10.000000000000000000
+      object xAniTrue: TFloatAnimation
+        Duration = 0.200000002980232200
+        PropertyName = 'Margins.Left'
+        StartValue = 0.000000000000000000
+        StopValue = 25.000000000000000000
+      end
+      object xAniFalse: TFloatAnimation
+        Duration = 0.200000002980232200
+        PropertyName = 'Margins.Left'
+        StartValue = 25.000000000000000000
+        StopValue = 0.000000000000000000
+      end
+      object xAniCircleColorTrue: TColorAnimation
+        Duration = 0.100000001490116100
+        PropertyName = 'Fill.Color'
+        StartValue = claWhite
+        StopValue = claWhite
+      end
+      object xAniCircleColorFalse: TColorAnimation
+        Duration = 0.100000001490116100
+        PropertyName = 'Fill.Color'
+        StartValue = claWhite
+        StopValue = claWhite
+      end
+    end
+    object xAniColorTrue: TColorAnimation
+      Duration = 0.100000001490116100
+      PropertyName = 'Fill.Color'
+      StartValue = claWhite
+      StopValue = claWhite
+    end
+    object xAniColorFalse: TColorAnimation
+      Duration = 0.100000001490116100
+      PropertyName = 'Fill.Color'
+      StartValue = claWhite
+      StopValue = claWhite
+    end
+  end
+end

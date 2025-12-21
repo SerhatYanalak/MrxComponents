@@ -1,0 +1,45 @@
+object MrxTrackbar: TMrxTrackbar
+  Size.Width = 236.000000000000000000
+  Size.Height = 28.000000000000000000
+  Size.PlatformDefault = False
+  object xContent: TLayout
+    Align = Client
+    Locked = True
+    HitTest = True
+    Size.Width = 236.000000000000000000
+    Size.Height = 28.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    OnMouseDown = xContentMouseDown
+    OnMouseMove = xContentMouseMove
+    OnMouseUp = xContentMouseUp
+    object xLine: TRectangle
+      Align = VertCenter
+      Fill.Color = claWhite
+      Locked = True
+      HitTest = False
+      Position.Y = 12.000000000000000000
+      Size.Width = 236.000000000000000000
+      Size.Height = 3.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 1.500000000000000000
+      YRadius = 1.500000000000000000
+      object xCircle: TRectangle
+        Align = Left
+        Fill.Color = xFFF058A8
+        Locked = True
+        HitTest = False
+        Margins.Top = -12.000000000000000000
+        Margins.Bottom = -12.000000000000000000
+        Position.Y = -12.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 27.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 9.500000000000000000
+        YRadius = 9.500000000000000000
+      end
+    end
+  end
+end

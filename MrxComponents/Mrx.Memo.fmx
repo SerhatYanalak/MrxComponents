@@ -1,0 +1,39 @@
+object MrxMemo: TMrxMemo
+  Size.Width = 260.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object xBackground: TRectangle
+    Align = Client
+    Fill.Color = xFFFAF9F9
+    Locked = True
+    HitTest = False
+    Padding.Left = 7.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 7.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Size.Width = 260.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 15.000000000000000000
+    YRadius = 15.000000000000000000
+    object xMemo: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      StyledSettings = [Family, Style]
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.FontColor = xFF080707
+      TextSettings.WordWrap = True
+      OnChangeTracking = xMemoChangeTracking
+      Align = Client
+      Locked = True
+      Size.Width = 246.000000000000000000
+      Size.Height = 90.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'transparentedit'
+      TabOrder = 0
+      Viewport.Width = 240.000000000000000000
+      Viewport.Height = 86.000000000000000000
+    end
+  end
+end

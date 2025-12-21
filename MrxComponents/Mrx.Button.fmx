@@ -1,0 +1,60 @@
+object MrxButton: TMrxButton
+  Size.Width = 208.000000000000000000
+  Size.Height = 88.000000000000000000
+  Size.PlatformDefault = False
+  object xBackground: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Locked = True
+    HitTest = False
+    Size.Width = 208.000000000000000000
+    Size.Height = 88.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 10.000000000000000000
+    YRadius = 10.000000000000000000
+    object xText: TSkLabel
+      Align = Client
+      Locked = True
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 188.000000000000000000
+      Size.Height = 68.000000000000000000
+      Size.PlatformDefault = False
+      StyledSettings = [Family, Style, FontColor]
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.HorzAlign = Center
+      Words = <
+        item
+          Text = 'xText'
+        end>
+    end
+    object xAniColor: TColorAnimation
+      Duration = 0.100000001490116100
+      Interpolation = Quadratic
+      PropertyName = 'Fill.Color'
+      StartValue = claWhite
+      StopValue = claWhite
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xAniRadiusX: TFloatAnimation
+      Duration = 0.100000001490116100
+      PropertyName = 'XRadius'
+      StartValue = 0.000000000000000000
+      StopValue = 0.000000000000000000
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xAniRadiusY: TFloatAnimation
+      Duration = 0.100000001490116100
+      PropertyName = 'YRadius'
+      StartValue = 0.000000000000000000
+      StopValue = 0.000000000000000000
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+  end
+end

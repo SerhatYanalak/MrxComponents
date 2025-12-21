@@ -1,0 +1,48 @@
+object MrxButtonIcon: TMrxButtonIcon
+  Size.Width = 100.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object xBackground: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Locked = True
+    HitTest = False
+    Size.Width = 100.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 10.000000000000000000
+    YRadius = 10.000000000000000000
+    object xAniColor: TColorAnimation
+      Duration = 0.100000001490116100
+      Interpolation = Quadratic
+      PropertyName = 'Fill.Color'
+      StartValue = claWhite
+      StopValue = claWhite
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xAniRadiusX: TFloatAnimation
+      Duration = 0.100000001490116100
+      PropertyName = 'XRadius'
+      StartValue = 0.000000000000000000
+      StopValue = 0.000000000000000000
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xAniRadiusY: TFloatAnimation
+      Duration = 0.100000001490116100
+      PropertyName = 'YRadius'
+      StartValue = 0.000000000000000000
+      StopValue = 0.000000000000000000
+      Trigger = 'IsMouseOver=true'
+      TriggerInverse = 'IsMouseOver=false'
+    end
+    object xIcon: TGlyph
+      Align = Center
+      Size.Width = 30.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+end

@@ -1,0 +1,61 @@
+object MrxCircleProgressbar: TMrxCircleProgressbar
+  Size.Width = 100.000000000000000000
+  Size.Height = 100.000000000000000000
+  Size.PlatformDefault = False
+  object xScaled: TScaledLayout
+    Align = Fit
+    Locked = True
+    OriginalWidth = 100.000000000000000000
+    OriginalHeight = 100.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    object xBackground: TArc
+      Align = Client
+      Locked = True
+      HitTest = False
+      Size.Width = 100.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claGray
+      Stroke.Thickness = 6.000000000000000000
+      StartAngle = -90.000000000000000000
+      EndAngle = 360.000000000000000000
+      object xText: TSkLabel
+        Align = Client
+        Locked = True
+        Size.Width = 100.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        StyledSettings = [Family, Style]
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.FontColor = xFF0B0909
+        TextSettings.HorzAlign = Center
+        Words = <
+          item
+            Text = '0%'
+          end>
+      end
+      object xLine: TArc
+        Align = Contents
+        Locked = True
+        HitTest = False
+        Size.Width = 100.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claTomato
+        Stroke.Thickness = 6.000000000000000000
+        Stroke.Cap = Round
+        Stroke.Join = Round
+        StartAngle = -90.000000000000000000
+        EndAngle = 1.000000000000000000
+        object xAniProgress: TFloatAnimation
+          Duration = 0.200000002980232200
+          PropertyName = 'EndAngle'
+          StartValue = 0.000000000000000000
+          StopValue = 0.000000000000000000
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,63 @@
+object MrxCheckbox: TMrxCheckbox
+  Size.Width = 200.000000000000000000
+  Size.Height = 40.000000000000000000
+  Size.PlatformDefault = False
+  OnClick = FrameClick
+  object xBackground: TLayout
+    Align = Left
+    Locked = True
+    Size.Width = 30.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object xCheckBackground: TRectangle
+      Align = Center
+      Fill.Color = claWhite
+      Locked = True
+      HitTest = False
+      Size.Width = 30.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 12.000000000000000000
+      YRadius = 12.000000000000000000
+      object xCheckPath: TPath
+        Align = Center
+        Data.Path = {
+          1B0000000000000000D8D74100B0BF4002000000EFC3D5416AEFBF4002000000
+          F0CAD341E568C340020000000058D2410060C940010000000000304100B0AC41
+          0100000000A0964000B07441020000004E998E40F88170410200000034AE8240
+          F0D26E4102000000CBEE6E4023497041020000002E81584056BF714102000000
+          58FD46404B207641020000008C244140B2BB7B4102000000C04B3B408DAB8041
+          02000000E107424053A683410200000000C0524000A885410100000000B02441
+          00A8BD41020000009CEF2A4179C7C041020000006410354179C7C04102000000
+          00503B4100A8BD410100000000A8DD4100A0F64002000000B705E041DF6CED40
+          02000000D8BBE041E05BDF40020000009E72DF412C34D340020000006529DE41
+          770CC740020000005B24DB41664CBF400200000000D8D74100B0BF4003000000
+          00D8D74100B0BF40}
+        Fill.Color = claWhite
+        Locked = True
+        HitTest = False
+        Size.Width = 10.000000000000000000
+        Size.Height = 10.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+      end
+    end
+  end
+  object xText: TSkLabel
+    Align = Client
+    Locked = True
+    Margins.Left = 10.000000000000000000
+    Size.Width = 160.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style]
+    TextSettings.Font.Size = 15.000000000000000000
+    TextSettings.FontColor = xFF191313
+    Words = <
+      item
+        Text = 'xText'
+      end>
+  end
+end
