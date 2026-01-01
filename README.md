@@ -37,10 +37,7 @@ MrxComponent:
 - Herhangi bir **lisans**, **ücret** veya **atıf** zorunluluğu **içermez**.
 - Açık kaynak felsefesiyle daima **ücretsiz** kalacaktır.
 
-<video width="1000" controls>
-  <source src="Attachment/preview.mp4" type="video/mp4">
-  Tarayıcınız video etiketini desteklemiyor.
-</video>
+![Alt Text](https://github.com/SerhatYanalak/MrxComponents/blob/main/Attachment/preview.gif?raw=true)
 
 ## Bileşenler ve Kullanım
 
