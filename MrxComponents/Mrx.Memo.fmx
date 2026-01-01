@@ -14,7 +14,7 @@ object MrxMemo: TMrxMemo
     Size.Width = 260.000000000000000000
     Size.Height = 100.000000000000000000
     Size.PlatformDefault = False
-    Stroke.Kind = None
+    Stroke.Color = claWhite
     XRadius = 15.000000000000000000
     YRadius = 15.000000000000000000
     object xMemo: TMemo
@@ -32,8 +32,10 @@ object MrxMemo: TMrxMemo
       Size.PlatformDefault = False
       StyleLookup = 'transparentedit'
       TabOrder = 0
-      Viewport.Width = 240.000000000000000000
-      Viewport.Height = 86.000000000000000000
+      OnEnter = xMemoEnter
+      OnExit = xMemoExit
+      Viewport.Width = 246.000000000000000000
+      Viewport.Height = 90.000000000000000000
     end
   end
 end

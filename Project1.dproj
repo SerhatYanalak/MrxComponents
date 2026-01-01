@@ -378,6 +378,11 @@
         <DCCReference Include="MrxComponents\QRCodeLib\DelphiZXingQRCode.FMX.pas"/>
         <DCCReference Include="MrxComponents\QRCodeLib\QrCode.Tools.pas"/>
         <DCCReference Include="MrxComponents\MrxTools.pas"/>
+        <DCCReference Include="MrxComponents\Mrx.Edit.pas">
+            <Form>MrxEdit</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

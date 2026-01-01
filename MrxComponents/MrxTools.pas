@@ -31,9 +31,9 @@ uses
   Mrx.Button;
 
 /// <summary>
-/// Bu iþlem kullanýcýnýn arayüz dilini yeniler.
+/// Bu islem kullanýcýnýn arayuz dilini yeniler.
 /// </summary>
-/// <param name="AForm">Dil güncellemesi yapýlacak form veya frame.</param>
+/// <param name="AForm">Dil guncellemesi yapilacak form veya frame.</param>
 class procedure TMrxLanguages.TranslateUI(AFrom: TComponent);
 var
   I, A: Integer;

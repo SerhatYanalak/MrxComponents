@@ -38,7 +38,8 @@ uses
   Mrx.Switch,
   Mrx.ButtonIconTextVertical,
   Mrx.ButtonIcon,
-  Mrx.QRCode;
+  Mrx.QRCode,
+  Mrx.Edit;
 
 type
   TForm1 = class(TForm)
@@ -72,6 +73,9 @@ type
     MrxText3: TMrxText;
     MrxButton4: TMrxButton;
     MrxButton5: TMrxButton;
+    MrxButton6: TMrxButton;
+    MrxEdit1: TMrxEdit;
+    MrxButton7: TMrxButton;
     procedure ComboBox1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -79,6 +83,8 @@ type
     procedure MrxButton4Click(Sender: TObject);
     procedure MrxSwitch1Click(Sender: TObject);
     procedure MrxButton5Click(Sender: TObject);
+    procedure MrxButton6Click(Sender: TObject);
+    procedure MrxButton7Click(Sender: TObject);
   private
   public
   end;
@@ -107,6 +113,8 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Form1.Fill.Color := $FFDDDADA;
+  MrxComponentSettings.MinRadius := 5;
+  MrxComponentSettings.MaxRadius := 20;
   ApplyTheme(Self, xLight);
 end;
 
@@ -118,19 +126,37 @@ end;
 
 procedure TForm1.MrxButton3Click(Sender: TObject);
 begin
-  TMrxLanguages.LanguageLoad('...Attachment\ingilizce.json'); // Doðru yolu belirtiniz
+  TMrxLanguages.LanguageLoad('..Attachment\ingilizce.json'); // Doðru yolu belirtiniz
   TMrxLanguages.TranslateUI(self);
 end;
 
 procedure TForm1.MrxButton4Click(Sender: TObject);
 begin
-  TMrxLanguages.LanguageLoad('...Attachment\türkçe.json'); // Doðru yolu belirtiniz
+  TMrxLanguages.LanguageLoad('..Attachment\türkçe.json'); // Doðru yolu belirtiniz
   TMrxLanguages.TranslateUI(self);
 end;
 
 procedure TForm1.MrxButton5Click(Sender: TObject);
 begin
   MrxCircleProgressbar2.isValue(RandomRange(1, 100));
+end;
+
+procedure TForm1.MrxButton6Click(Sender: TObject);
+begin
+  MrxComponentSettings.MinRadius := 5;
+  MrxComponentSettings.MaxRadius := 20;
+  MrxComponentSettings.Thickness := 1;
+  MrxComponentSettings.Transparent := true;
+  ApplyTheme(Self, xLight);
+end;
+
+procedure TForm1.MrxButton7Click(Sender: TObject);
+begin
+  MrxComponentSettings.MinRadius := 5;
+  MrxComponentSettings.MaxRadius := 20;
+  MrxComponentSettings.Thickness := 1;
+  MrxComponentSettings.Transparent := false;
+  ApplyTheme(Self, xLight);
 end;
 
 procedure TForm1.MrxSwitch1Click(Sender: TObject);

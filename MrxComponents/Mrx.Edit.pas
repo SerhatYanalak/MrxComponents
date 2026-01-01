@@ -1,4 +1,4 @@
-unit Mrx.EditPath;
+unit Mrx.Edit;
 
 interface
 
@@ -14,18 +14,16 @@ uses
   FMX.Forms,
   FMX.Dialogs,
   FMX.StdCtrls,
-  FMX.Objects,
+  FMX.ImgList,
   FMX.Controls.Presentation,
   FMX.Edit,
-  FMX.Layouts,
+  FMX.Objects,
   ComponentViewAssistant;
 
 type
-  TMrxEditPath = class(TFrame)
+  TMrxEdit = class(TFrame)
     xBackground: TRectangle;
     xEdit: TEdit;
-    xIconBackground: TLayout;
-    xIcon: TPath;
     procedure xEditCanFocus(Sender: TObject; var ACanFocus: Boolean);
     procedure xEditExit(Sender: TObject);
   private
@@ -38,13 +36,12 @@ implementation
 
 {$R *.fmx}
 
-procedure TMrxEditPath.xEditCanFocus(Sender: TObject;
-  var ACanFocus: Boolean);
+procedure TMrxEdit.xEditCanFocus(Sender: TObject; var ACanFocus: Boolean);
 begin
-xBackground.Stroke.Color :=  MrxTriggerColors.Triggered;
+ xBackground.Stroke.Color :=  MrxTriggerColors.Triggered;
 end;
 
-procedure TMrxEditPath.xEditExit(Sender: TObject);
+procedure TMrxEdit.xEditExit(Sender: TObject);
 begin
  xBackground.Stroke.Color :=  MrxTriggerColors.UnTriggered;
 end;

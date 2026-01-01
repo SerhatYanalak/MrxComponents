@@ -1,4 +1,4 @@
-object MrxEditImageList: TMrxEditImageList
+object MrxEdit: TMrxEdit
   Size.Width = 260.000000000000000000
   Size.Height = 40.000000000000000000
   Size.PlatformDefault = False
@@ -20,31 +20,18 @@ object MrxEditImageList: TMrxEditImageList
       TabOrder = 0
       TextSettings.Font.Size = 15.000000000000000000
       TextSettings.FontColor = xFF131010
-      Position.X = 35.000000000000000000
+      Position.X = 10.000000000000000000
       Position.Y = 5.000000000000000000
       Locked = True
-      Margins.Left = 5.000000000000000000
+      Margins.Left = 10.000000000000000000
       Margins.Right = 10.000000000000000000
-      Size.Width = 215.000000000000000000
+      Size.Width = 240.000000000000000000
       Size.Height = 30.000000000000000000
       Size.PlatformDefault = False
       TextPrompt = 'Text'
       StyledSettings = [Family, Style]
       OnCanFocus = xEditCanFocus
       OnExit = xEditExit
-    end
-    object xIcon: TGlyph
-      AutoHide = False
-      Margins.Left = 10.000000000000000000
-      Margins.Top = 7.500000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 7.500000000000000000
-      Align = Left
-      Position.X = 10.000000000000000000
-      Position.Y = 7.500000000000000000
-      Size.Width = 15.000000000000000000
-      Size.Height = 25.000000000000000000
-      Size.PlatformDefault = False
     end
   end
 end

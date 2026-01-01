@@ -23,7 +23,8 @@ uses
   Mrx.QRCode in 'MrxComponents\Mrx.QRCode.pas' {MrxQRCode: TFrame},
   DelphiZXingQRCode.FMX in 'MrxComponents\QRCodeLib\DelphiZXingQRCode.FMX.pas',
   QrCode.Tools in 'MrxComponents\QRCodeLib\QrCode.Tools.pas',
-  MrxTools in 'MrxComponents\MrxTools.pas';
+  MrxTools in 'MrxComponents\MrxTools.pas',
+  Mrx.Edit in 'MrxComponents\Mrx.Edit.pas' {MrxEdit: TFrame};
 
 {$R *.res}
 

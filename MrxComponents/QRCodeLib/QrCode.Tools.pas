@@ -7,7 +7,8 @@ uses
   Classes,
   System.UITypes,
   FMX.Graphics,
-  DelphiZXingQRCode.FMX, ComponentViewAssistant;
+  DelphiZXingQRCode.FMX,
+  ComponentViewAssistant;
 
 type
   TQrCodeTools = class
@@ -21,7 +22,6 @@ uses
   System.Math,
   System.SysUtils;
 
-{ TQrCodeTools }
 
 class procedure TQrCodeTools.Generate(const AText: string; AImage: TImage);
 var
@@ -45,7 +45,6 @@ begin
 
     PixelSize := Floor(BitmapSize / QrCode.Rows);
 
-    // Ortalamak için boþluklarý hesapla
     OffsetX := (BitmapSize - (QrCode.Columns * PixelSize)) / 2;
     OffsetY := (BitmapSize - (QrCode.Rows * PixelSize)) / 2;
 
@@ -53,18 +52,16 @@ begin
     try
       QRCodeBitmap.Canvas.Fill.Color := MrxTriggerColors.Font;
 
-      for Row := 0 to QrCode.Rows - 1 do
-      begin
-        for Column := 0 to QrCode.Columns - 1 do
-        begin
-          if QrCode.IsBlack[Row, Column] then
-          begin
-            Rect := TRectF.Create(
-              OffsetX + Column * PixelSize,
-              OffsetY + Row * PixelSize,
-              OffsetX + (Column + 1) * PixelSize,
-              OffsetY + (Row + 1) * PixelSize
-            );
+      for Row := 0 to QrCode.Rows - 1 do begin
+        for Column := 0 to QrCode.Columns - 1 do begin
+          if QrCode.IsBlack[Row, Column] then begin
+            Rect :=
+                TRectF.Create(
+                    OffsetX + Column * PixelSize,
+                    OffsetY + Row * PixelSize,
+                    OffsetX + (Column + 1) * PixelSize,
+                    OffsetY + (Row + 1) * PixelSize
+                );
             QRCodeBitmap.Canvas.FillRect(Rect, 0, 0, [], 1);
           end;
         end;
@@ -82,4 +79,3 @@ begin
 end;
 
 end.
-

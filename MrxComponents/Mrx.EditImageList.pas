@@ -18,13 +18,16 @@ uses
   FMX.Layouts,
   FMX.Controls.Presentation,
   FMX.Edit,
-  FMX.ImgList;
+  FMX.ImgList,
+  ComponentViewAssistant;
 
 type
   TMrxEditImageList = class(TFrame)
     xBackground: TRectangle;
     xEdit: TEdit;
     xIcon: TGlyph;
+    procedure xEditCanFocus(Sender: TObject; var ACanFocus: Boolean);
+    procedure xEditExit(Sender: TObject);
   private
 
   public
@@ -34,5 +37,16 @@ type
 implementation
 
 {$R *.fmx}
+
+procedure TMrxEditImageList.xEditCanFocus(Sender: TObject;
+  var ACanFocus: Boolean);
+begin
+ xBackground.Stroke.Color :=  MrxTriggerColors.Triggered;
+end;
+
+procedure TMrxEditImageList.xEditExit(Sender: TObject);
+begin
+ xBackground.Stroke.Color :=  MrxTriggerColors.UnTriggered;
+end;
 
 end.

@@ -10,7 +10,7 @@ object MrxEditPath: TMrxEditPath
     Size.Width = 260.000000000000000000
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
-    Stroke.Kind = None
+    Stroke.Color = claWhite
     XRadius = 20.000000000000000000
     YRadius = 20.000000000000000000
     object xEdit: TEdit
@@ -30,6 +30,8 @@ object MrxEditPath: TMrxEditPath
       Size.PlatformDefault = False
       TextPrompt = 'Text'
       StyledSettings = [Family, Style]
+      OnCanFocus = xEditCanFocus
+      OnExit = xEditExit
     end
     object xIconBackground: TLayout
       Align = Left

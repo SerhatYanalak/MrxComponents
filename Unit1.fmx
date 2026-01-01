@@ -3,7 +3,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 724
+  ClientHeight = 675
   ClientWidth = 1000
   Fill.Color = xFFDBDCDD
   Fill.Kind = Solid
@@ -17,11 +17,11 @@ object Form1: TForm1
     Align = Contents
     Margins.Right = 10.000000000000000000
     Size.Width = 990.000000000000000000
-    Size.Height = 724.000000000000000000
+    Size.Height = 675.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
     Viewport.Width = 990.000000000000000000
-    Viewport.Height = 724.000000000000000000
+    Viewport.Height = 675.000000000000000000
     object ComboBox1: TComboBox
       ItemIndex = 0
       Position.X = 14.000000000000000000
@@ -149,7 +149,7 @@ object Form1: TForm1
     end
     inline MrxEditImageList1: TMrxEditImageList
       Position.X = 466.000000000000000000
-      Position.Y = 80.000000000000000000
+      Position.Y = 128.000000000000000000
       Size.Width = 260.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
@@ -162,7 +162,7 @@ object Form1: TForm1
     end
     inline MrxEditPath1: TMrxEditPath
       Position.X = 466.000000000000000000
-      Position.Y = 128.000000000000000000
+      Position.Y = 176.000000000000000000
       Size.Width = 260.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
@@ -301,7 +301,7 @@ object Form1: TForm1
     end
     inline MrxMemo1: TMrxMemo
       Position.X = 466.000000000000000000
-      Position.Y = 176.000000000000000000
+      Position.Y = 224.000000000000000000
       Size.Width = 260.000000000000000000
       Size.Height = 100.000000000000000000
       Size.PlatformDefault = False
@@ -385,6 +385,49 @@ object Form1: TForm1
           Words = <
             item
               Text = 'Rnd'
+            end>
+        end
+      end
+    end
+    inline MrxButton6: TMrxButton
+      Position.X = 358.000000000000000000
+      Position.Y = 377.000000000000000000
+      Size.Width = 208.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      OnClick = MrxButton6Click
+      inherited xBackground: TRectangle
+        Size.Height = 65.000000000000000000
+        inherited xText: TSkLabel
+          Size.Height = 45.000000000000000000
+          Words = <
+            item
+              Text = 'Opak mod'
+            end>
+        end
+      end
+    end
+    inline MrxEdit1: TMrxEdit
+      Position.X = 466.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 260.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inline MrxButton7: TMrxButton
+      Position.X = 574.000000000000000000
+      Position.Y = 377.000000000000000000
+      Size.Width = 208.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      OnClick = MrxButton7Click
+      inherited xBackground: TRectangle
+        Size.Height = 65.000000000000000000
+        inherited xText: TSkLabel
+          Size.Height = 45.000000000000000000
+          Words = <
+            item
+              Text = 'Varsay'#305'lan'
             end>
         end
       end

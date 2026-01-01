@@ -22,13 +22,15 @@ uses
   System.Skia,
   Math,
   FMX.Ani,
-  FMX.Skia;
+  FMX.Skia, ComponentViewAssistant;
 
 type
   TMrxMemo = class(TFrame)
     xBackground: TRectangle;
     xMemo: TMemo;
     procedure xMemoChangeTracking(Sender: TObject);
+    procedure xMemoEnter(Sender: TObject);
+    procedure xMemoExit(Sender: TObject);
   private
     xAutoHeight: Boolean;
     procedure SetAutoHeight(const Value: Boolean);
@@ -39,6 +41,7 @@ type
 implementation
 
 {$R *.fmx}
+
 
 procedure TMrxMemo.SetAutoHeight(const Value: Boolean);
 begin
@@ -52,6 +55,16 @@ begin
   xValue := (xMemo.Content.Height + 35);
   if xAutoHeight then
     TAnimator.AnimateFloat(self, 'Height', max(xValue, 100), 0.1);
+end;
+
+procedure TMrxMemo.xMemoEnter(Sender: TObject);
+begin
+ xBackground.Stroke.Color :=  MrxTriggerColors.Triggered;
+end;
+
+procedure TMrxMemo.xMemoExit(Sender: TObject);
+begin
+ xBackground.Stroke.Color :=  MrxTriggerColors.UnTriggered;
 end;
 
 end.

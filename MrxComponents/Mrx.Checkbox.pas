@@ -39,17 +39,18 @@ type
 
 implementation
 
-
 {$R *.fmx}
 
 procedure TMrxCheckbox.isChecked(status: boolean);
 begin
   xChecked := status;
   case status of
-    true:
+    true: begin
       xCheckBackground.Fill.Color := MrxTriggerColors.Triggered;
-    false:
+    end;
+    false: begin
       xCheckBackground.Fill.Color := MrxTriggerColors.Untriggered
+    end;
   end;
 end;
 
@@ -64,4 +65,3 @@ begin
 end;
 
 end.
-
