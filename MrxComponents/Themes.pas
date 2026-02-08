@@ -3,7 +3,7 @@ unit Themes;
 interface
 
 uses
-  ComponentViewAssistant;
+ Mrx.ComponentViewAssistant;
 
 const
   ThemePalettes: array[TMrxThemes] of TThemePalette =(

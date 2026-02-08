@@ -33,18 +33,26 @@ object MrxEditImageList: TMrxEditImageList
       OnCanFocus = xEditCanFocus
       OnExit = xEditExit
     end
-    object xIcon: TGlyph
-      AutoHide = False
+    object xBackgroundIcon: TLayout
+      Align = Left
+      Locked = True
       Margins.Left = 10.000000000000000000
       Margins.Top = 7.500000000000000000
       Margins.Right = 5.000000000000000000
       Margins.Bottom = 7.500000000000000000
-      Align = Left
       Position.X = 10.000000000000000000
       Position.Y = 7.500000000000000000
       Size.Width = 15.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
+      TabOrder = 1
+      object xIcon: TGlyph
+        AutoHide = False
+        Align = Center
+        Size.Width = 15.000000000000000000
+        Size.Height = 15.000000000000000000
+        Size.PlatformDefault = False
+      end
     end
   end
 end

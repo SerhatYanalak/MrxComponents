@@ -56,7 +56,7 @@ object MrxButtonIconTextVertical: TMrxButtonIconTextVertical
         Margins.Top = 5.000000000000000000
         Margins.Right = 10.000000000000000000
         Size.Width = 100.000000000000000000
-        Size.Height = 30.000000000000000000
+        Size.Height = 25.000000000000000000
         Size.PlatformDefault = False
         StyledSettings = [Family, Style, FontColor]
         TextSettings.Font.Size = 15.000000000000000000
@@ -66,12 +66,20 @@ object MrxButtonIconTextVertical: TMrxButtonIconTextVertical
             Text = 'xText'
           end>
       end
-      object xIcon: TGlyph
-        AutoHide = False
+      object xBackgroundIcon: TLayout
         Align = Top
+        Locked = True
         Size.Width = 120.000000000000000000
-        Size.Height = 25.000000000000000000
+        Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
+        TabOrder = 0
+        object xIcon: TGlyph
+          AutoHide = False
+          Align = Center
+          Size.Width = 30.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+        end
       end
     end
   end

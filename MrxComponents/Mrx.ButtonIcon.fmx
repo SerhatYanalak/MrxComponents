@@ -11,11 +11,10 @@ object MrxButtonIcon: TMrxButtonIcon
     Size.Height = 100.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
-    XRadius = 10.000000000000000000
-    YRadius = 10.000000000000000000
     object xAniColor: TColorAnimation
       Duration = 0.100000001490116100
       Interpolation = Quadratic
+      Inverse = True
       PropertyName = 'Fill.Color'
       StartValue = claWhite
       StopValue = claWhite
@@ -24,6 +23,7 @@ object MrxButtonIcon: TMrxButtonIcon
     end
     object xAniRadiusX: TFloatAnimation
       Duration = 0.100000001490116100
+      Inverse = True
       PropertyName = 'XRadius'
       StartValue = 0.000000000000000000
       StopValue = 0.000000000000000000
@@ -32,6 +32,7 @@ object MrxButtonIcon: TMrxButtonIcon
     end
     object xAniRadiusY: TFloatAnimation
       Duration = 0.100000001490116100
+      Inverse = True
       PropertyName = 'YRadius'
       StartValue = 0.000000000000000000
       StopValue = 0.000000000000000000

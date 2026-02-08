@@ -28,7 +28,8 @@ implementation
 
 uses
   Mrx.Text,
-  Mrx.Button;
+  Mrx.Button,
+  Mrx.Edit;
 
 /// <summary>
 /// Bu islem kullanýcýnýn arayuz dilini yeniler.
@@ -44,6 +45,7 @@ var
   CEdit: TEdit;
   CMrxButton: TMrxButton;
   CButton: TButton;
+  CMrxEdit: TMrxEdit;
 begin
   for I := 0 to AFrom.ComponentCount - 1 do begin
     C := AFrom.Components[I];
@@ -67,7 +69,8 @@ begin
 
     if C is TEdit then begin
       CEdit := TEdit(C);
-      CEdit.Text := Translate(CEdit.TextPrompt);
+      CEdit.Text := Translate(CEdit.Text);
+      CEdit.TextPrompt := Translate(CEdit.TextPrompt);
     end;
 
     if C is TMrxButton then begin
@@ -79,6 +82,12 @@ begin
     if C is TButton then begin
       CButton := TButton(C);
       CButton.Text := Translate(CButton.Text);
+    end;
+
+    if C is TMrxEdit then begin
+      CMrxEdit := TMrxEdit(C);
+      CMrxEdit.xEdit.Text := Translate(CMrxEdit.xEdit.Text);
+      CMrxEdit.xEdit.TextPrompt := Translate(CMrxEdit.xEdit.TextPrompt);
     end;
   end;
 end;

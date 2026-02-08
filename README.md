@@ -15,6 +15,8 @@ Bileşen setinin, **Skia desteği bulunan diğer Delphi sürümlerinde** de çal
 
 Farklı Delphi sürümlerinde kullanım öncesinde, geliştiricinin kendi proje ve hedef platformu kapsamında test yapması önerilir.
 
+**Uyarı : Proje ayarlarında Skia aktif olmalıdır.**
+
 
 # MrxComponent
 
@@ -37,10 +39,8 @@ MrxComponent:
 - Herhangi bir **lisans**, **ücret** veya **atıf** zorunluluğu **içermez**.
 - Açık kaynak felsefesiyle daima **ücretsiz** kalacaktır.
 
-<video width="1000" controls>
-  <source src="Attachment/preview.mp4" type="video/mp4">
-  Tarayıcınız video etiketini desteklemiyor.
-</video>
+![Alt Text](https://github.com/SerhatYanalak/MrxComponents/blob/main/Attachment/preview.gif?raw=true)
+
 
 ## Bileşenler ve Kullanım
 
@@ -144,3 +144,35 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   ApplyTheme(Self, xLight);
 end;
+```
+
+# Güncelleme geçmişi
+
+### 2.0.0
+
+Bu sürüm büyük yapısal değişiklikler ve kritik düzenlemeler içerir. Bu nedenle önceki sürümlerle geriye dönük uyumluluk garanti edilmez.
+Güncellemeden önce lütfen aşağıdaki yenilikler bölümünü inceleyin ve mümkünse ayrı bir proje üzerinde test edin.
+
+ TMrxComponentSettings için desteklenen özellikler :
+  - **FontSize** : Bileşenlerde uygulanabilecek yazı büyüklüğünü belirler.
+  - **IconScale** : Bileşenlerde uygulanabilecek ikon büyüklüğünü belirler. 0 ile 2 aralığında değer alır.
+ 
+ **TMrxAcrylicbar** : Artık bulanıklaştırma efekti köşe kenarlarını dikkate alıyor.
+ 
+ **ComponentViewAssistant** kaynak dosyası uyum sağlanması için **Mrx.ComponentViewAssistant** olarak yeniden adlandırıldı.
+
+**Mrx.StyleBook** eklendi : TEdit ve TMemo bileşenlerinin tasarımı tüm cihazlarda aynı görünüme ayarlandı.
+
+### 1.1.0 
+- TMrxEdit eklendi.
+- Bileşenler üzerinde merkezi kontrol ve tasarım bütünlüğü sağlamak için TMrxComponentSettings eklendi.
+
+ TMrxComponentSettings için desteklenen özellikler :
+  - **MinRadius** : Bileşenlerde uygulanabilecek minimum köşe yarıçapı değerini belirler.
+  - **MaxRadius** : Köşe yuvarlama işlemlerinde kullanılabilecek maksimum yarıçap sınırını tanımlar.
+  - **Thickness** : Çizgi, kenarlık veya stroke tabanlı bileşenlerde kullanılacak kalınlık değerini ifade eder.
+  - **Transparent** : Bileşenin arka planının saydam (transparent) olarak render edilip edilmeyeceğini kontrol eder.
+
+### 1.0.0
+- Temel sürüm
+

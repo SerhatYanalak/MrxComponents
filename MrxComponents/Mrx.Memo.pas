@@ -22,7 +22,8 @@ uses
   System.Skia,
   Math,
   FMX.Ani,
-  FMX.Skia, ComponentViewAssistant;
+  FMX.Skia,
+  Mrx.ComponentViewAssistant;
 
 type
   TMrxMemo = class(TFrame)
@@ -42,7 +43,6 @@ implementation
 
 {$R *.fmx}
 
-
 procedure TMrxMemo.SetAutoHeight(const Value: Boolean);
 begin
   xAutoHeight := Value;
@@ -59,12 +59,12 @@ end;
 
 procedure TMrxMemo.xMemoEnter(Sender: TObject);
 begin
- xBackground.Stroke.Color :=  MrxTriggerColors.Triggered;
+  xBackground.Stroke.Color := MrxTriggerColors.Triggered;
 end;
 
 procedure TMrxMemo.xMemoExit(Sender: TObject);
 begin
- xBackground.Stroke.Color :=  MrxTriggerColors.UnTriggered;
+  xBackground.Stroke.Color := MrxTriggerColors.UnTriggered;
 end;
 
 end.

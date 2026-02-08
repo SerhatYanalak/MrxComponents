@@ -19,13 +19,14 @@ uses
   FMX.Controls.Presentation,
   FMX.Edit,
   FMX.ImgList,
-  ComponentViewAssistant;
+  Mrx.ComponentViewAssistant;
 
 type
   TMrxEditImageList = class(TFrame)
     xBackground: TRectangle;
     xEdit: TEdit;
     xIcon: TGlyph;
+    xBackgroundIcon: TLayout;
     procedure xEditCanFocus(Sender: TObject; var ACanFocus: Boolean);
     procedure xEditExit(Sender: TObject);
   private

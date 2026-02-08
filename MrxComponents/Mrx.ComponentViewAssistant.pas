@@ -1,4 +1,4 @@
-﻿unit ComponentViewAssistant;
+﻿unit Mrx.ComponentViewAssistant;
 
 interface
 
@@ -9,6 +9,7 @@ uses
   FMX.Graphics,
   FMX.Objects,
   FMX.Forms,
+  FMX.Controls,
   FMX.Types,
   System.Math,
   System.UIConsts;
@@ -18,6 +19,8 @@ type
       (colorTypeBackground, colorTypeFont, colorTypeTriggered, colorTypeUntriggered, colorTypeDefault);
 
   TMrxThemes = (xLight, xDark, xCustom);
+
+  TMrxStyleBookType = (StyleEdit, StyleMemo);
 
   TMrxComponents = (
       xMrxQRCode,
@@ -57,16 +60,29 @@ type
     FMaxRadius: Single;
     FThickness: Single;
     FTransparent: Boolean;
+    FIconScale: single;
+    FFontSize: integer;
   public
     property MinRadius: Single read FMinRadius write FMinRadius;
     property MaxRadius: Single read FMaxRadius write FMaxRadius;
     property Thickness: Single read FThickness write FThickness;
     property Transparent: Boolean read FTransparent write FTransparent;
+    /// <summary>0 ile 2 arasındadır.</summary>
+    property IconScale: single read FIconScale write FIconScale;
+    property FontSize: integer read FFontSize write FFontSize;
+  end;
+
+  TMrxAcrylicbarSettings = record
+  private
+    FBlur: integer;
+  public
+    property Blur: integer read FBlur write FBlur;
   end;
 
 var
   MrxTriggerColors: TMrxTriggerColors;
   MrxComponentSettings: TMrxComponentSettings;
+  MrxAcrylicbarSettings: TMrxAcrylicbarSettings;
 
 procedure ApplyTheme(AForm: TFmxObject; ATheme: TMrxThemes);
 
@@ -88,10 +104,34 @@ uses
   Mrx.ButtonIcon,
   Mrx.QRCode,
   Mrx.Edit,
-  Themes;
+  Themes,
+  Mrx.StyleBook;
 
 var
   MrxThemeInitialized: Boolean = False;
+  MrxStyleBook: TStyleBook;
+
+procedure MrxStyleBookLoad;
+var
+  TextStream: TStringStream;
+  BinStream: TMemoryStream;
+begin
+  if MrxStyleBook <> nil then
+    Exit;
+
+  MrxStyleBook := TStyleBook.Create(nil);
+
+  TextStream := TStringStream.Create(Mrx.StyleBook.CStyleText, TEncoding.UTF8);
+  BinStream := TMemoryStream.Create;
+  try
+    ObjectTextToBinary(TextStream, BinStream);
+    BinStream.Position := 0;
+    MrxStyleBook.LoadFromStream(BinStream);
+  finally
+    TextStream.Free;
+    BinStream.Free;
+  end;
+end;
 
 function GetThemeColor(ATheme: TMrxThemes; AType: TMrxThemeColorTypes): TAlphaColor;
 begin
@@ -143,6 +183,32 @@ procedure ApplyTheme(AForm: TFmxObject; ATheme: TMrxThemes);
         AShape.Stroke.Kind := TBrushKind.None;
     end;
   end;
+
+  function IsStyleBook(StyleBookType: TMrxStyleBookType): string;
+  begin
+    case StyleBookType of
+      StyleEdit: begin
+        case TOSVersion.Platform of
+          pfWindows: Result := 'EditWindowsStyle';
+          pfMacOS: Result := 'EditMacosStyle';
+          pfiOS: Result := 'EditIosStyle';
+          pfAndroid: Result := 'EditAndroidStyle';
+        else
+          Result := '';
+        end;
+      end;
+      StyleMemo: begin
+        case TOSVersion.Platform of
+          pfWindows: Result := 'MemoWindowsStyle';
+          pfMacOS: Result := 'MemoMacosStyle';
+          pfiOS: Result := 'MemoIosStyle';
+          pfAndroid: Result := 'MemoAndroidStyle';
+        else
+          Result := '';
+        end;
+      end;
+    end;
+  end;
 var
   I: Integer;
   C: TComponent;
@@ -163,7 +229,6 @@ var
   CMrxQRCode: TMrxQRCode;
   CMrxEdit: TMrxEdit;
 begin
-
   MrxTriggerColors.Untriggered := GetThemeColor(ATheme, colorTypeUntriggered);
   MrxTriggerColors.Triggered := GetThemeColor(ATheme, colorTypeTriggered);
   MrxTriggerColors.Font := GetThemeColor(ATheme, colorTypeFont);
@@ -205,6 +270,9 @@ begin
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeBackground);
               xBackground.Stroke.Color := GetThemeColor(ATheme, colorTypeBackground);
 
+              xText.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
+
               IsTransparent(xBackground);
 
             end;
@@ -221,7 +289,8 @@ begin
                   IfThen(MrxComponentSettings.MinRadius <> 0, MrxComponentSettings.MinRadius, Min(Width, Height) / 3);
               xCheckBackground.YRadius :=
                   IfThen(MrxComponentSettings.MinRadius <> 0, MrxComponentSettings.MinRadius, Min(Width, Height) / 3);
-
+              xText.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
             end;
           end;
         xMrxSwitch:
@@ -261,6 +330,7 @@ begin
           if C is TMrxEditImageList then begin
             CMrxEditImageList := TMrxEditImageList(C);
             with CMrxEditImageList do begin
+
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeDefault);
               xEdit.FontColor := GetThemeColor(ATheme, colorTypeFont);
 
@@ -273,14 +343,25 @@ begin
               xBackground.Stroke.Thickness :=
                   IfThen(MrxComponentSettings.Thickness <> 0, MrxComponentSettings.Thickness, 1);
 
-              IsTransparent(xBackground, true);
+              xEdit.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
 
+              xIcon.Height :=
+                  Ifthen(
+                      (MrxComponentSettings.IconScale > 0) and (MrxComponentSettings.IconScale <= 2),
+                      MrxComponentSettings.IconScale * 15,
+                      15
+                  );
+              xIcon.Width := xIcon.Height;
+              IsTransparent(xBackground, true);
+              xEdit.StyleLookup := IsStyleBook(TMrxStyleBookType.StyleEdit);
             end;
           end;
         xMrxEditPath:
           if C is TMrxEditPath then begin
             CMrxEditPath := TMrxEditPath(C);
             with CMrxEditPath do begin
+
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeDefault);
               xEdit.FontColor := GetThemeColor(ATheme, colorTypeFont);
               xIcon.Fill.Color := GetThemeColor(ATheme, colorTypeFont);
@@ -294,14 +375,25 @@ begin
               xBackground.Stroke.Thickness :=
                   IfThen(MrxComponentSettings.Thickness <> 0, MrxComponentSettings.Thickness, 1);
 
-              IsTransparent(xBackground, true);
+              xEdit.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
 
+              xIcon.Height :=
+                  Ifthen(
+                      (MrxComponentSettings.IconScale > 0) and (MrxComponentSettings.IconScale <= 2),
+                      MrxComponentSettings.IconScale * 15,
+                      15
+                  );
+              xIcon.Width := xIcon.Height;
+              IsTransparent(xBackground, true);
+              xEdit.StyleLookup := IsStyleBook(TMrxStyleBookType.StyleEdit);
             end;
           end;
         xMrxMemo:
           if C is TMrxMemo then begin
             CMrxMemo := TMrxMemo(C);
             with CMrxMemo do begin
+
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeDefault);
               xMemo.FontColor := GetThemeColor(ATheme, colorTypeFont);
 
@@ -314,7 +406,10 @@ begin
               xBackground.Stroke.Thickness :=
                   IfThen(MrxComponentSettings.Thickness <> 0, MrxComponentSettings.Thickness, 1);
 
+              xMemo.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
               IsTransparent(xBackground, true);
+              xMemo.StyleLookup := IsStyleBook(TMrxStyleBookType.StyleMemo);
             end;
           end;
         xMrxButtonIconVertical:
@@ -342,7 +437,18 @@ begin
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeBackground);
               xBackground.Stroke.Color := GetThemeColor(ATheme, colorTypeBackground);
 
+              xText.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
+
+              xIcon.Height :=
+                  Ifthen(
+                      (MrxComponentSettings.IconScale > 0) and (MrxComponentSettings.IconScale <= 2),
+                      MrxComponentSettings.IconScale * 30,
+                      30
+                  );
+              xIcon.Width := xIcon.Height;
               IsTransparent(xBackground);
+
             end;
           end;
         xMrxLabel:
@@ -350,6 +456,8 @@ begin
             CMrxText := TMrxText(C);
             with CMrxText do begin
               xtext.TextSettings.FontColor := GetThemeColor(ATheme, colorTypeFont);
+              xText.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
             end;
           end;
         xMrxCircleProgressbar:
@@ -359,6 +467,8 @@ begin
               xBackground.Stroke.Color := GetThemeColor(ATheme, colorTypeUntriggered);
               xLine.Stroke.Color := GetThemeColor(ATheme, colorTypeTriggered);
               xtext.TextSettings.FontColor := GetThemeColor(ATheme, colorTypeFont);
+              xText.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
             end;
           end;
         xMrxStar:
@@ -392,6 +502,13 @@ begin
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeBackground);
               xBackground.Stroke.Color := GetThemeColor(ATheme, colorTypeBackground);
 
+              xIcon.Height :=
+                  Ifthen(
+                      (MrxComponentSettings.IconScale > 0) and (MrxComponentSettings.IconScale <= 2),
+                      MrxComponentSettings.IconScale * 30,
+                      30
+                  );
+              xIcon.Width := xIcon.Height;
               IsTransparent(xBackground);
             end;
           end;
@@ -415,6 +532,7 @@ begin
           if C is TMrxEdit then begin
             CMrxEdit := TMrxEdit(C);
             with CMrxEdit do begin
+
               xBackground.Fill.Color := GetThemeColor(ATheme, colorTypeDefault);
               xEdit.FontColor := GetThemeColor(ATheme, colorTypeFont);
 
@@ -427,8 +545,10 @@ begin
               xBackground.Stroke.Thickness :=
                   IfThen(MrxComponentSettings.Thickness <> 0, MrxComponentSettings.Thickness, 1);
 
+              xEdit.TextSettings.Font.Size :=
+                  Ifthen(MrxComponentSettings.FontSize <> 0, MrxComponentSettings.FontSize, 15);
               IsTransparent(xBackground, true);
-
+              xEdit.StyleLookup := IsStyleBook(TMrxStyleBookType.StyleEdit);
             end;
           end;
       end;
@@ -436,4 +556,9 @@ begin
   end;
 end;
 
+initialization
+  MrxStyleBookLoad;
+
+finalization
+  FreeAndNil(MrxStyleBook);
 end.

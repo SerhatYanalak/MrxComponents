@@ -17,7 +17,8 @@ uses
   System.Skia,
   FMX.Ani,
   FMX.Skia,
-  FMX.Objects, FMX.ImgList;
+  FMX.Objects,
+  FMX.ImgList;
 
 type
   TMrxButtonIcon = class(TFrame)
@@ -35,4 +36,3 @@ implementation
 {$R *.fmx}
 
 end.
-

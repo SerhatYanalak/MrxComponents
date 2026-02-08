@@ -13,7 +13,7 @@ uses
   Mrx.EditPath in 'MrxComponents\Mrx.EditPath.pas' {MrxEditPath: TFrame},
   Mrx.EditImageList in 'MrxComponents\Mrx.EditImageList.pas' {MrxEditImageList: TFrame},
   Mrx.Memo in 'MrxComponents\Mrx.Memo.pas' {MrxMemo: TFrame},
-  ComponentViewAssistant in 'MrxComponents\ComponentViewAssistant.pas',
+  Mrx.ComponentViewAssistant in 'MrxComponents\Mrx.ComponentViewAssistant.pas',
   Themes in 'MrxComponents\Themes.pas',
   Mrx.ButtonIconTextVertical in 'MrxComponents\Mrx.ButtonIconTextVertical.pas' {MrxButtonIconTextVertical: TFrame},
   Mrx.Text in 'MrxComponents\Mrx.Text.pas' {MrxText: TFrame},
@@ -24,7 +24,8 @@ uses
   DelphiZXingQRCode.FMX in 'MrxComponents\QRCodeLib\DelphiZXingQRCode.FMX.pas',
   QrCode.Tools in 'MrxComponents\QRCodeLib\QrCode.Tools.pas',
   MrxTools in 'MrxComponents\MrxTools.pas',
-  Mrx.Edit in 'MrxComponents\Mrx.Edit.pas' {MrxEdit: TFrame};
+  Mrx.Edit in 'MrxComponents\Mrx.Edit.pas' {MrxEdit: TFrame},
+  Mrx.StyleBook in 'MrxComponents\Mrx.StyleBook.pas';
 
 {$R *.res}
 

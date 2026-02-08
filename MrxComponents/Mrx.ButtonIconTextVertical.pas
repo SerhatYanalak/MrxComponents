@@ -30,6 +30,7 @@ type
     xAniRadiusY: TFloatAnimation;
     xLayer: TLayout;
     xIcon: TGlyph;
+    xBackgroundIcon: TLayout;
   private
   public
   end;

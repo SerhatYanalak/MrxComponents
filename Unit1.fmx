@@ -10,7 +10,6 @@ object Form1: TForm1
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   OnShow = FormShow
   DesignerMasterStyle = 0
   object ScrollBox1: TScrollBox
@@ -27,7 +26,7 @@ object Form1: TForm1
       Position.X = 14.000000000000000000
       Position.Y = 12.000000000000000000
       Size.Width = 150.000000000000000000
-      Size.Height = 40.000000000000000000
+      Size.Height = 32.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       OnChange = ComboBox1Change
@@ -45,54 +44,6 @@ object Form1: TForm1
         Size.PlatformDefault = False
         TabOrder = 1
         Text = 'Modern'
-      end
-    end
-    inline MrxButton1: TMrxButton
-      Position.X = 14.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 208.000000000000000000
-      Size.Height = 88.000000000000000000
-      Size.PlatformDefault = False
-    end
-    inline MrxButton2: TMrxButton
-      Position.X = 14.000000000000000000
-      Position.Y = 176.000000000000000000
-      Size.Width = 208.000000000000000000
-      Size.Height = 88.000000000000000000
-      Size.PlatformDefault = False
-    end
-    inline MrxButtonIconVertical1: TMrxButtonIconTextVertical
-      Position.X = 230.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 88.000000000000000000
-      Size.PlatformDefault = False
-      inherited xBackground: TRectangle
-        Size.Height = 88.000000000000000000
-        inherited xLayer: TLayout
-          Position.Y = 14.000000000000000000
-          inherited xIcon: TGlyph
-            ImageIndex = 0
-            Images = ImageList1
-          end
-        end
-      end
-    end
-    inline MrxButtonIconVertical2: TMrxButtonIconTextVertical
-      Position.X = 230.000000000000000000
-      Position.Y = 176.000000000000000000
-      Size.Width = 120.000000000000000000
-      Size.Height = 88.000000000000000000
-      Size.PlatformDefault = False
-      inherited xBackground: TRectangle
-        Size.Height = 88.000000000000000000
-        inherited xLayer: TLayout
-          Position.Y = 14.000000000000000000
-          inherited xIcon: TGlyph
-            ImageIndex = 6
-            Images = ImageList1
-          end
-        end
       end
     end
     inline MrxCheckbox1: TMrxCheckbox
@@ -154,9 +105,15 @@ object Form1: TForm1
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       inherited xBackground: TRectangle
-        inherited xIcon: TGlyph
-          ImageIndex = 0
-          Images = ImageList1
+        inherited xEdit: TEdit
+          Position.Y = 4.000000000000000000
+          Size.Height = 32.000000000000000000
+        end
+        inherited xBackgroundIcon: TLayout
+          inherited xIcon: TGlyph
+            ImageIndex = 0
+            Images = ImageList1
+          end
         end
       end
     end
@@ -167,6 +124,10 @@ object Form1: TForm1
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       inherited xBackground: TRectangle
+        inherited xEdit: TEdit
+          Position.Y = 4.000000000000000000
+          Size.Height = 32.000000000000000000
+        end
         inherited xIconBackground: TLayout
           inherited xIcon: TPath
             Data.Path = {
@@ -393,13 +354,13 @@ object Form1: TForm1
       Position.X = 358.000000000000000000
       Position.Y = 377.000000000000000000
       Size.Width = 208.000000000000000000
-      Size.Height = 65.000000000000000000
+      Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       OnClick = MrxButton6Click
       inherited xBackground: TRectangle
-        Size.Height = 65.000000000000000000
+        Size.Height = 40.000000000000000000
         inherited xText: TSkLabel
-          Size.Height = 45.000000000000000000
+          Size.Height = 20.000000000000000000
           Words = <
             item
               Text = 'Opak mod'
@@ -413,22 +374,81 @@ object Form1: TForm1
       Size.Width = 260.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
+      inherited xBackground: TRectangle
+        inherited xEdit: TEdit
+          StyleLookup = 'transparentEdit'
+          Position.Y = 4.000000000000000000
+          Size.Height = 32.000000000000000000
+        end
+      end
     end
     inline MrxButton7: TMrxButton
-      Position.X = 574.000000000000000000
-      Position.Y = 377.000000000000000000
+      Position.X = 358.000000000000000000
+      Position.Y = 424.000000000000000000
       Size.Width = 208.000000000000000000
-      Size.Height = 65.000000000000000000
+      Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       OnClick = MrxButton7Click
       inherited xBackground: TRectangle
-        Size.Height = 65.000000000000000000
+        Size.Height = 40.000000000000000000
         inherited xText: TSkLabel
-          Size.Height = 45.000000000000000000
+          Size.Height = 20.000000000000000000
           Words = <
             item
               Text = 'Varsay'#305'lan'
             end>
+        end
+      end
+    end
+    inline MrxButton1: TMrxButton
+      Position.X = 14.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 208.000000000000000000
+      Size.Height = 88.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inline MrxButton2: TMrxButton
+      Position.X = 14.000000000000000000
+      Position.Y = 176.000000000000000000
+      Size.Width = 208.000000000000000000
+      Size.Height = 88.000000000000000000
+      Size.PlatformDefault = False
+    end
+    inline MrxButtonIconTextVertical1: TMrxButtonIconTextVertical
+      Position.X = 230.000000000000000000
+      Position.Y = 80.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 88.000000000000000000
+      Size.PlatformDefault = False
+      inherited xBackground: TRectangle
+        Size.Height = 88.000000000000000000
+        inherited xLayer: TLayout
+          Position.Y = 14.000000000000000000
+          inherited xBackgroundIcon: TLayout
+            inherited xIcon: TGlyph
+              ImageIndex = 4
+              Images = ImageList1
+            end
+          end
+        end
+      end
+    end
+    inline MrxButtonIconTextVertical2: TMrxButtonIconTextVertical
+      Position.X = 230.000000000000000000
+      Position.Y = 176.000000000000000000
+      Size.Width = 120.000000000000000000
+      Size.Height = 88.000000000000000000
+      Size.PlatformDefault = False
+      inherited xBackground: TRectangle
+        Size.Height = 88.000000000000000000
+        inherited xLayer: TLayout
+          Position.Y = 14.000000000000000000
+          inherited xBackgroundIcon: TLayout
+            inherited xIcon: TGlyph
+              ImageIndex = 3
+              Images = ImageList1
+            end
+          end
         end
       end
     end

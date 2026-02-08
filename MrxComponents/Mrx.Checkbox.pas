@@ -19,7 +19,7 @@ uses
   System.Skia,
   FMX.Skia,
   System.Math,
-  ComponentViewAssistant,
+  Mrx.ComponentViewAssistant,
   FMX.Ani;
 
 type

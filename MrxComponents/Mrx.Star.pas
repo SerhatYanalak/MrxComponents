@@ -16,7 +16,7 @@ uses
   FMX.StdCtrls,
   FMX.Layouts,
   FMX.Objects,
-  ComponentViewAssistant;
+  Mrx.ComponentViewAssistant;
 
 type
   TMrxStar = class(TFrame)

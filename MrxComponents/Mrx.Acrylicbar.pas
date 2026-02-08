@@ -15,7 +15,7 @@ uses
   FMX.Dialogs,
   FMX.Objects,
   FMX.StdCtrls,
-  ComponentViewAssistant;
+  Mrx.ComponentViewAssistant;
 
 type
   TRectangle = class(FMX.Objects.TRectangle)
@@ -27,10 +27,10 @@ type
   TMrxAcrylicbar = class(TFrame)
     xBackground: TRectangle;
   private
-    fEnabled: Boolean;
+    FEnabled: Boolean;
 
   public
-    property EffectEnabled: Boolean read fEnabled write fEnabled;
+    property EffectEnabled: Boolean read FEnabled write FEnabled;
   end;
 
 implementation
@@ -39,24 +39,60 @@ implementation
 
 uses
   System.Skia,
-  FMX.Skia.Canvas;
+  FMX.Skia.Canvas,
+  System.Math;
 
 procedure TRectangle.Paint;
 var
   LCanvas: ISkCanvas;
-  LSaveCount: Integer;
+  LSave: Integer;
+  B: ISkPathBuilder;
+  P: ISkPath;
+  R: TRectF;
+  RX, RY: Single;
 begin
-
-  if (Canvas is TSkCanvasCustom) and (TMrxAcrylicbar(Parent).EffectEnabled) then
-  begin
+  if (Canvas is TSkCanvasCustom) and (Parent is TMrxAcrylicbar) and TMrxAcrylicbar(Parent).EffectEnabled then begin
     LCanvas := TSkCanvasCustom(Canvas).Canvas;
-    LSaveCount := LCanvas.Save;
+    LSave := LCanvas.Save;
     try
-      LCanvas.ClipRect(LocalRect, TSkClipOp.Intersect, True);
-      LCanvas.SaveLayer(LocalRect, nil, TSkImageFilter.MakeBlur(10, 10, nil, TSkTileMode.Clamp), [TSkSaveLayerFlag.InitWithPrevious]);
+      R := LocalRect;
+      RX := XRadius;
+      RY := YRadius;
+
+      B := TSkPathBuilder.Create;
+
+      B.MoveTo(R.Left + RX, R.Top);
+      B.LineTo(R.Right - RX, R.Top);
+      B.QuadTo(R.Right, R.Top, R.Right, R.Top + RY);
+
+      B.LineTo(R.Right, R.Bottom - RY);
+      B.QuadTo(R.Right, R.Bottom, R.Right - RX, R.Bottom);
+
+      B.LineTo(R.Left + RX, R.Bottom);
+      B.QuadTo(R.Left, R.Bottom, R.Left, R.Bottom - RY);
+
+      B.LineTo(R.Left, R.Top + RY);
+      B.QuadTo(R.Left, R.Top, R.Left + RX, R.Top);
+
+      B.Close;
+
+      P := B.Detach;
+
+      LCanvas.ClipPath(P, TSkClipOp.Intersect, True);
+
+      LCanvas.SaveLayer(
+          R,
+          nil,
+          TSkImageFilter.MakeBlur(
+              IfThen(MrxAcrylicbarSettings.Blur <> 0, MrxAcrylicbarSettings.Blur, 10),
+              IfThen(MrxAcrylicbarSettings.Blur <> 0, MrxAcrylicbarSettings.Blur, 10)
+          ),
+          []
+      );
+
       inherited;
     finally
-      LCanvas.RestoreToCount(LSaveCount);
+      LCanvas.RestoreToCount(LSave);
     end;
   end
   else
@@ -64,4 +100,3 @@ begin
 end;
 
 end.
-

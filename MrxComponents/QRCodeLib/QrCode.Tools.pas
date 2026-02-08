@@ -8,7 +8,7 @@ uses
   System.UITypes,
   FMX.Graphics,
   DelphiZXingQRCode.FMX,
-  ComponentViewAssistant;
+  Mrx.ComponentViewAssistant;
 
 type
   TQrCodeTools = class
@@ -21,7 +21,6 @@ uses
   System.Types,
   System.Math,
   System.SysUtils;
-
 
 class procedure TQrCodeTools.Generate(const AText: string; AImage: TImage);
 var

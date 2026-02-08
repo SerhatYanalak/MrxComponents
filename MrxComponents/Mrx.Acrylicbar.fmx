@@ -6,6 +6,7 @@ object MrxAcrylicbar: TMrxAcrylicbar
     Align = Contents
     Fill.Color = claWhite
     Locked = True
+    HitTest = False
     Opacity = 0.500000000000000000
     Size.Width = 300.000000000000000000
     Size.Height = 48.000000000000000000

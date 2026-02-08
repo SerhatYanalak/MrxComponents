@@ -4,6 +4,8 @@ interface
 
 uses
   System.SysUtils,
+  System.Skia,
+  FMX.Skia,
   System.Types,
   System.UITypes,
   System.Classes,
@@ -15,8 +17,6 @@ uses
   FMX.Dialogs,
   Mrx.Button,
   Mrx.Trackbar,
-  System.Skia,
-  FMX.Skia,
   FMX.Objects,
   FMX.Layouts,
   FMX.Controls.Presentation,
@@ -25,9 +25,9 @@ uses
   Mrx.EditPath,
   System.ImageList,
   FMX.ImgList,
-  system.Math,
+  System.Math,
   Mrx.EditImageList,
-  ComponentViewAssistant,
+  Mrx.ComponentViewAssistant,
   MrxTools,
   Mrx.Memo,
   Mrx.Text,
@@ -48,10 +48,6 @@ type
     ListBoxItem5: TListBoxItem;
     ImageList1: TImageList;
     ScrollBox1: TScrollBox;
-    MrxButton1: TMrxButton;
-    MrxButton2: TMrxButton;
-    MrxButtonIconVertical1: TMrxButtonIconTextVertical;
-    MrxButtonIconVertical2: TMrxButtonIconTextVertical;
     MrxCheckbox1: TMrxCheckbox;
     MrxCheckbox2: TMrxCheckbox;
     MrxCircleProgressbar1: TMrxCircleProgressbar;
@@ -76,8 +72,11 @@ type
     MrxButton6: TMrxButton;
     MrxEdit1: TMrxEdit;
     MrxButton7: TMrxButton;
+    MrxButton1: TMrxButton;
+    MrxButton2: TMrxButton;
+    MrxButtonIconTextVertical1: TMrxButtonIconTextVertical;
+    MrxButtonIconTextVertical2: TMrxButtonIconTextVertical;
     procedure ComboBox1Change(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure MrxButton3Click(Sender: TObject);
     procedure MrxButton4Click(Sender: TObject);
@@ -110,16 +109,13 @@ begin
   end;
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TForm1.FormShow(Sender: TObject);
 begin
   Form1.Fill.Color := $FFDDDADA;
   MrxComponentSettings.MinRadius := 5;
   MrxComponentSettings.MaxRadius := 20;
   ApplyTheme(Self, xLight);
-end;
 
-procedure TForm1.FormShow(Sender: TObject);
-begin
   MrxQRCode1.QRData('MrxComponent');
   MrxMemo1.AutoHeight := true;
 end;
@@ -147,6 +143,7 @@ begin
   MrxComponentSettings.MaxRadius := 20;
   MrxComponentSettings.Thickness := 1;
   MrxComponentSettings.Transparent := true;
+  MrxAcrylicbarSettings.Blur := 25;
   ApplyTheme(Self, xLight);
 end;
 
@@ -156,13 +153,14 @@ begin
   MrxComponentSettings.MaxRadius := 20;
   MrxComponentSettings.Thickness := 1;
   MrxComponentSettings.Transparent := false;
+  MrxComponentSettings.FontSize := 20;
+  MrxComponentSettings.IconScale := 1.5;
   ApplyTheme(Self, xLight);
 end;
 
 procedure TForm1.MrxSwitch1Click(Sender: TObject);
 begin
   MrxSwitch1.FrameClick(Sender);
-  MrxCircleProgressbar2.isValue(RandomRange(1, 100));
 end;
 
 end.

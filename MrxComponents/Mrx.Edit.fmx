@@ -16,7 +16,6 @@ object MrxEdit: TMrxEdit
     object xEdit: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = VertCenter
-      StyleLookup = 'transparentedit'
       TabOrder = 0
       TextSettings.Font.Size = 15.000000000000000000
       TextSettings.FontColor = xFF131010

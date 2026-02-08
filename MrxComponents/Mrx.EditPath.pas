@@ -18,7 +18,7 @@ uses
   FMX.Controls.Presentation,
   FMX.Edit,
   FMX.Layouts,
-  ComponentViewAssistant;
+  Mrx.ComponentViewAssistant;
 
 type
   TMrxEditPath = class(TFrame)
