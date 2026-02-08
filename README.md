@@ -40,10 +40,6 @@ MrxComponent:
 - Açık kaynak felsefesiyle daima **ücretsiz** kalacaktır.
 
 ![Alt Text](https://github.com/SerhatYanalak/MrxComponents/blob/main/Attachment/preview.gif?raw=true)
-<<<<<<< HEAD
-
-=======
->>>>>>> eeee2c03b72d5eadb329adfb77d1267e4f8240eb
 
 ## Bileşenler ve Kullanım
 
